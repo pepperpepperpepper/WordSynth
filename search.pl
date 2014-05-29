@@ -98,9 +98,9 @@ sub main{
   my $word = $ARGV[0];
   my $syll_map = merriamSyllables($word);
   my $original = merriamSimpleSearch($word);
-#  if (!$original){
-#    return 0;
-#  }
+  if (!$original){
+    return 0;
+  }
   if ($DEBUG){
     my $mac_version = `node createVCString.js $word`; 
     my $results = sprintf("%s\t%s\t%s\t%s\t%s\n", 
