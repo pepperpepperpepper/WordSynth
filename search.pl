@@ -13,13 +13,16 @@ our $rules = get_regexp();
 
 sub merriamSyllables{
   my $word = shift;
+  $word = lc($word);
   my $ua = LWP::UserAgent->new();
   my $res = $ua->get("http://www.merriam-webster.com/dictionary/$word");
   my $search = $res->decoded_content || decode("utf8", $res->content); 
   
   my @lines = split(/\n/, $search);
+  my @real = grep{/h1/} @lines;
+  my $section = ($real[0] =~ />([a-zA-Z]+)</)[0];
   my @lines = grep(/class="pr"/, @lines);
-  if (! @lines){
+  if (! @lines || $section !~ /$word/ig){
     print STDERR "can't look this up in webster dictionary\n";
     return 0;
   }
@@ -28,7 +31,7 @@ sub merriamSyllables{
   $line = $1;
   my @matches = ($line =~ />([^<]+)</ig);
   my $syll_string = join('', @matches);
-  my $syll_string = ($syll_string =~ m/\\(.*)\\/)[0];
+  my $syll_string = ($syll_string =~ m/\\([^\\]+)\\/)[0];
   my $syll_string = ($syll_string =~ m/(^[^,]+).*/)[0];
   my $syll_map = { 
     "string" => "",
@@ -95,6 +98,9 @@ sub main{
   my $word = $ARGV[0];
   my $syll_map = merriamSyllables($word);
   my $original = merriamSimpleSearch($word);
+#  if (!$original){
+#    return 0;
+#  }
   if ($DEBUG){
 
     my $results = sprintf("%s\t%s\t%s\t%s\n", $word, $syll_map->{string}, join(",", @{$syll_map->{position}}), $original);
