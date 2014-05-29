@@ -31,7 +31,7 @@ sub merriamSyllables{
   $line = $1;
   my @matches = ($line =~ />([^<]+)</ig);
   my $syll_string = join('', @matches);
-  my $syll_string = ($syll_string =~ m/\\([^\\]+)\\/)[0];
+  my $syll_string = ($syll_string =~ m/\\([^\s\\]+)[\s\\]/)[0];
   my $syll_string = ($syll_string =~ m/(^[^,]+).*/)[0];
   my $syll_map = { 
     "string" => "",
@@ -102,8 +102,9 @@ sub main{
 #    return 0;
 #  }
   if ($DEBUG){
-
-    my $results = sprintf("%s\t%s\t%s\t%s\n", $word, $syll_map->{string}, join(",", @{$syll_map->{position}}), $original);
+    my $mac_version = `node createVCString.js $word`; 
+    my $results = sprintf("%s\t%s\t%s\t%s\t%s\n", 
+      $word, $syll_map->{string}, join(",", @{$syll_map->{position}}), $original, $mac_version);
     append_file('results.out', $results); 
   }
 }

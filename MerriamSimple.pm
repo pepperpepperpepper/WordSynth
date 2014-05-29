@@ -26,7 +26,7 @@ sub merriamSimpleSearch{
   $line = $1;
   my @matches = ($line =~ />([^<]+)</ig);
   my $syll_string = join('', @matches);
-  my $syll_string = ($syll_string =~ m/\\([^\\]+)\\/)[0];
+  my $syll_string = ($syll_string =~ m/\\([^\s\\]+)[\s\\]/)[0];
   my $syll_string = ($syll_string =~ m/(^[^,]+).*/)[0];
   my $syll_map = { 
     "string" => "",
