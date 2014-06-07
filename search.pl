@@ -12,6 +12,7 @@ our $DEBUG = 1;
 our $rules = get_regexp();
 
 sub merriamSyllables{
+  
   my $word = shift;
   $word = lc($word);
   my $ua = LWP::UserAgent->new();
@@ -33,6 +34,10 @@ sub merriamSyllables{
   my $syll_string = join('', @matches);
   my $syll_string = ($syll_string =~ m/\\([^\s\\]+)[\s\\]/)[0];
   my $syll_string = ($syll_string =~ m/(^[^,]+).*/)[0];
+  if ($syll_string =~ m/^-/){
+    print STDERR "pronunciation useless due to its being incomplete\n";
+    return 0;
+  }
   my $syll_map = { 
     "string" => "",
     "position" => []
@@ -98,7 +103,7 @@ sub main{
   my $word = $ARGV[0];
   my $syll_map = merriamSyllables($word);
   my $original = merriamSimpleSearch($word);
-  if (!$original){
+  if (!$original || !$syll_map){
     return 0;
   }
   if ($DEBUG){
