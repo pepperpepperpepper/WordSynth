@@ -17,5 +17,6 @@ function syllabize(string){
   return consonants_vowel_pattern;
 
 }
-console.log(syllabize(word));
+module.exports = syllabize;
+//console.log(syllabize(word));
 

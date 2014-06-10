@@ -1,16 +1,12 @@
 #!/usr/bin/env node
-
-//var ARGS = process.argv.slice(2);
+var test_string = process.argv[2] || 'test';  //'_s1AXrpIHkOW.';
 var execSync = require('exec-sync'); 
 var consonant_vowel_map = require('./consonant_vowel_map.json');
 
-
-function phonemize(test_string){
-
+function tokenize(test_string){
   test_string = execSync('phonemes '+test_string);
-
   var regexp = new RegExp(
-    "(\"|\\)|\\.|,|\\(|)?" + // PUNCTUATION_DATA
+    "(\"|\\)|\\.|,|\\(|\\s|)?" + // PUNCTUATION_DATA
     "(~|1|=|2|_|\\+|)?" + // PROSODIC CONTROL
     "(%|@|AE|EY|AO|AX|IY|EH|IH|AY|IX|AA|UW|UH|UX|OW|AW|OY|b|C|d|D|f|g|h|J|k|l|m|n|N|p|r|s|S|t|T|v|w|y|z|Z)?", // PHONEMES
     "g" //flag
@@ -30,6 +26,6 @@ function phonemize(test_string){
   }
   return results;
 }
-module.exports = phonemize;
-
-//console.log(phonemize(ARGS[0]));
+//console.log(tokenize(test_string));
+//tokenize(test_string);
+module.exports = tokenize;
