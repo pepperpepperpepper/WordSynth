@@ -7,16 +7,13 @@ var word = ARGS[0];
 function syllabize(string){
   var tokens = tokenize(string);
   var consonants_vowel_pattern = "";
-//  console.log(tokens);
   tokens.forEach(function(token){
-    if (token[1] == 'PHONEME'){
-      consonants_vowel_pattern += token[2];
+    if (token['type'] == 'PHONEME'){
+      consonants_vowel_pattern += token['phoneme_type'];
     }
   });
-//  console.log(consonants_vowel_pattern);
   return consonants_vowel_pattern;
 
 }
 module.exports = syllabize;
-//console.log(syllabize(word));
 

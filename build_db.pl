@@ -3,22 +3,24 @@ use File::Slurp;
 use Data::Dumper;
 use JSON;
 use Array::Utils qw(:all);
+
+
+
+
 #if ( array_diff(@$list1, @$list2) ) {
 $Data::Dumper::Maxdepth->{120};
-my @lines = read_file('all_results');
-my $test = "VCCCCVCVCCVCVC";
+my @lines = read_file('SCRAPE_RESULTS/all_results');
+
 
 my @parts;
 my $pattern, $to_push;
 my $db_hash = {};
-my $pushed = 0; #ask about this
-
+my @positions;
+my $pushed = 0; 
 foreach my $line(@lines){
-  @parts = split(/\t/, $line);
+  @parts = split(/\t/, $line);#values aren't getting lost here...
   $pattern = $parts[1];
-  my @positions = split(/,/, $parts[2]);
-  $to_push = \@positions;
-
+  @positions = split(/,/, $parts[2]); # and they lost exactly here actually
   if (exists $db_hash->{$pattern}){
     $pushed = 0;
     foreach my $elem (@{$db_hash->{$pattern}}){
@@ -32,7 +34,7 @@ foreach my $line(@lines){
       push(@{$db_hash->{$pattern}},
         {
           count => 1, 
-          positions => \@positions
+          positions => [ @positions ],  # like this it will work
         }
       );
     }
@@ -41,19 +43,24 @@ foreach my $line(@lines){
     push(@{$db_hash->{$pattern}}, 
       {
         count => 1, 
-        positions => \@positions
+        positions => [ @positions ]
       }
-      
     );
   }
-
 };
-
-open(DATA, ">syllablesdb.json") or die "Couldn't open file syllables.json, $!";
+foreach my $k (keys %$db_hash){
+  my $arr = $db_hash->{$k};
+  my @new_arr = sort {$b->{count} <=> $a->{count} } @{$arr};
+  $db_hash->{$k} = \@new_arr;
+}
+#write to file...
+open(DATA, ">syllablesdb2.json") or die "Couldn't open file syllables.json, $!";
 
 my $json_string =  encode_json($db_hash);
+#print Dumper $json_string;
 print DATA $json_string;
 close(DATA);
+
 #print Dumper $db_hash->{$test}->[0];
 #print scalar (keys %$db_hash);
 #print Dumper $db_hash;

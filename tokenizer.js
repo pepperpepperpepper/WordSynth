@@ -15,13 +15,23 @@ function tokenize(test_string){
   var results = [];
   while((matches = regexp.exec(test_string)) && matches[0] !== ''){
     if (matches[1]){
-      results.push([matches[1], "PUNCTUATION_DATA"]);
+      results.push({ 
+        "type" : "PUNCTUATION_DATA",
+        "symbol" : matches[1]
+      });
     }
     if (matches[2]){
-      results.push([matches[2], "PROSODIC_CONTROL"]);
+      results.push({ 
+        "type" : "PROSODIC_CONTROL",
+        "symbol" : matches[2]
+      });
     }
     if (matches[3]){
-      results.push([matches[3], "PHONEME", consonant_vowel_map[matches[3]]]);
+      results.push({
+          "type" : "PHONEME", 
+          "symbol" : matches[3], 
+          "phoneme_type" : consonant_vowel_map[matches[3]]
+      });
     }
   }
   return results;
