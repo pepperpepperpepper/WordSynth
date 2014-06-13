@@ -9,6 +9,7 @@ var tokenize = require('./tokenizer.js');
 
 function determineSeparationPoints(test_string){
   var VC_string = createVCString(test_string);
+  VC_string = VC_string.replace(/[^VC]/g, ''); 
   var learned_data = syllables_data[VC_string] || {};//add if exists
   return learned_data[0]['positions'];
 //  var most_likely = { count: 0, positions: undefined  };
@@ -29,7 +30,7 @@ function separateSyllables(test_string){
   }
   var syllables = [];
   var syllable = [];
-  var phoneme_count = 0; //starts at 1 for some reason. guess I messed this up
+  var phoneme_count = 0; 
   tokens.forEach(function(token){
     syllable.push(token);
     if (token['type'] == 'PHONEME'){
