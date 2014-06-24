@@ -78,4 +78,6 @@ var results = tokenize(test_string);
 //}
 //
 //
+//but I felt like I wasn't doing it right because it wasn't recursing deep enough
+//it worked okay though
 console.log(printSyllables(syllables));

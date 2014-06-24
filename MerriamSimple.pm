@@ -11,7 +11,7 @@ our @EXPORT_OK = qw(merriamSimpleSearch);
 sub merriamSimpleSearch{
   my $word = shift;
   $word = lc($word);
-  my $search = `curl "http://www.merriam-webster.com/dictionary/$word"`;
+  my $search = `curl -s "http://www.merriam-webster.com/dictionary/$word"`;
   
   my @lines = split(/\n/, $search);
   my @real = grep{/h1/} @lines;
@@ -36,5 +36,5 @@ sub merriamSimpleSearch{
   my $current_position = 0;
   return $syll_string;
 }
-print Dumper merriamSimpleSearch($ARGV[0]);
+#print Dumper merriamSimpleSearch($ARGV[0]);
 1;

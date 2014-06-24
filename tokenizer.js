@@ -36,6 +36,12 @@ function tokenize(test_string){
   }
   return results;
 }
-//console.log(tokenize(test_string));
-//tokenize(test_string);
+
+var main = function(){
+  console.log(tokenize(test_string));
+}
+
+if (require.main === module) {
+    main();
+}
 module.exports = tokenize;

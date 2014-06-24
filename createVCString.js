@@ -11,7 +11,7 @@ function createVCString(string){
     if (token['type'] == 'PHONEME'){
       consonants_vowel_pattern += token['phoneme_type'];
     }
-    else if(token['type'] == 'PROSODIC_CONTROL' && ! /[~_\.]/.exec(token['symbol'])){
+    else if(token['type'] == 'PROSODIC_CONTROL' && token['symbol'] == '1'){
       consonants_vowel_pattern += token['symbol']
 
     }
@@ -19,9 +19,13 @@ function createVCString(string){
   return consonants_vowel_pattern;
 
 }
-VC_string = createVCString(word);
 
-console.log(VC_string);
-//console.log(createVCString(word));
+var main = function(){
+  console.log(createVCString(word));
+}
+
+if (require.main === module) {
+    main();
+}
 module.exports = createVCString;
 

@@ -6,7 +6,8 @@ open(my $fh, ">", $RULE_FILE)
 #http://www.merriam-webster.com/pronsymbols.html this changes shit!
 
 my $rules = {
-  'syllable' => ["'", '"','-', "ˈ" ],
+  'stressed' => [ "ˈ" ],
+  'syllable' => ["'", '"','-'],
   'variant' => [',',';','÷','/','\s'] , #not using
   'unstressed'=> [qw/ & /],
   'syllabic_vowel' => [ qw/ȯi au au̇ oi yü e 'E "E E i I O o ō [oe] [0E] ü u̇ u [ue] ə ē ā ī œ a A ä [a']/],

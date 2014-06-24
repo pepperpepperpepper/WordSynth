@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 
-var test_string = process.argv[2] || 'caramellonianish';  
+var test_string = process.argv[2] || 'dildo';  
 
-var syllables_data = require("./syllablesdb.json");
+var syllables_data = require("./syllablesdb_withaccent.json");
 var createVCString = require ("./createVCString.js");
 var tokenize = require('./tokenizer.js');
 
 
 function determineSeparationPoints(test_string){
   var VC_string = createVCString(test_string);
-  VC_string = VC_string.replace(/[^VC]/g, ''); 
-  var learned_data = syllables_data[VC_string] || undefined;//add if exists
+//  VC_string = VC_string.replace(/[^VC]/g, ''); 
+  var learned_data = syllables_data[VC_string] || 0;//add if exists
   if (learned_data){
     return learned_data[0]['positions'];
-  }else{
+  }
+  else{
     return false;
   }
-//  var most_likely = { count: 0, positions: undefined  };
+    //  var most_likely = { count: 0, positions: undefined  };
 //  learned_data.forEach(function(data){
 //    if (data['count'] > most_likely['count']){
 //      most_likely = data;
@@ -63,11 +64,14 @@ function printSyllableString(syllables){
   return to_print;
 }
 var main = function(){
-  var syllables = separateSyllables(test_string);
-  console.log(printSyllableString(syllables));
+var syllables = separateSyllables(test_string);
+console.log(printSyllableString(syllables));
+//console.log(syllables.length)
+//console.log(syllables[0]);
+//console.log(syllables[1]);
 }
 
 if (require.main === module) {
     main();
 }
-module.exports = determineSeparationPoints;
+module.exports = determineSeparationPoints; 

@@ -9,7 +9,7 @@ use Array::Utils qw(:all);
 
 #if ( array_diff(@$list1, @$list2) ) {
 $Data::Dumper::Maxdepth->{120};
-my @lines = read_file('SCRAPE_RESULTS/all_results');
+my @lines = read_file('newest_set_matched');
 
 
 my @parts;
@@ -18,9 +18,9 @@ my $db_hash = {};
 my @positions;
 my $pushed = 0; 
 foreach my $line(@lines){
-  @parts = split(/\t/, $line);#values aren't getting lost here...
+  @parts = split(/\t/, $line);
   $pattern = $parts[1];
-  @positions = split(/,/, $parts[2]); # and they lost exactly here actually
+  @positions = split(/,/, $parts[2]); 
   if (exists $db_hash->{$pattern}){
     $pushed = 0;
     foreach my $elem (@{$db_hash->{$pattern}}){
@@ -34,11 +34,11 @@ foreach my $line(@lines){
       push(@{$db_hash->{$pattern}},
         {
           count => 1, 
-          positions => [ @positions ],  # like this it will work
+          positions => [ @positions ],  
         }
       );
     }
-  }else{ #create new
+  }else{ 
     $db_hash->{$pattern} = [];
     push(@{$db_hash->{$pattern}}, 
       {
@@ -54,7 +54,7 @@ foreach my $k (keys %$db_hash){
   $db_hash->{$k} = \@new_arr;
 }
 #write to file...
-open(DATA, ">syllablesdb2.json") or die "Couldn't open file syllables.json, $!";
+open(DATA, ">syllablesdb_withaccent.json") or die "Couldn't open file syllables.json, $!";
 
 my $json_string =  encode_json($db_hash);
 #print Dumper $json_string;

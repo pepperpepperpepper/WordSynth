@@ -1,0 +1,13 @@
+neon
+when two vowels are next to each other and one is stressed
+
+consonant sound between an unstressed vowel and the following vowel, insert a 
+syllable break before the last consonant
+
+two consonants following a stressed vowel, split them with a syllable break
+
+syllable after each stressed vowel
+
+go back over syllables, if one ends in a vowel, and the next
+begins with /N/ and then a vowel, move the /N/ to the first syllable
+
