@@ -1,0 +1,11 @@
+{
+  "name": "webapp",
+  "description": "syllables web testing",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "ejs": "1.x",
+    "forever": "0.x"
+  }
+}
