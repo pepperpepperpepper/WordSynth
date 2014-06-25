@@ -4,7 +4,7 @@ var execSync = require('exec-sync');
 var consonant_vowel_map = require('./consonant_vowel_map.json');
 
 function tokenize(test_string){
-  test_string = execSync('phonemes '+test_string);
+  test_string = execSync('phonemes \"'+test_string+'\"');
   var regexp = new RegExp(
     "(\"|\\)|\\.|,|\\()?" + // PUNCTUATION_DATA
     "(~|1|=|2|_|\\+|\\s)?" + // PROSODIC CONTROL

@@ -1,0 +1,84 @@
+.table > thead > tr > td.syllabizeLearning_withaccent,
+.table > tbody > tr > td.syllabizeLearning_withaccent,
+.table > tfoot > tr > td.syllabizeLearning_withaccent,
+.table > thead > tr > th.syllabizeLearning_withaccent,
+.table > tbody > tr > th.syllabizeLearning_withaccent,
+.table > tfoot > tr > th.syllabizeLearning_withaccent,
+.table > thead > tr.syllabizeLearning_withaccent > td,
+.table > tbody > tr.syllabizeLearning_withaccent > td,
+.table > tfoot > tr.syllabizeLearning_withaccent > td,
+.table > thead > tr.syllabizeLearning_withaccent > th,
+.table > tbody > tr.syllabizeLearning_withaccent > th,
+.table > tfoot > tr.syllabizeLearning_withaccent > th {
+  background-color: #703C00;
+}
+.table-hover > tbody > tr > td.syllabizeLearning_withaccent:hover,
+.table-hover > tbody > tr > th.syllabizeLearning_withaccent:hover,
+.table-hover > tbody > tr.syllabizeLearning_withaccent:hover > td,
+.table-hover > tbody > tr.syllabizeLearning_withaccent:hover > th {
+  background-color: #8D6C45;
+}
+
+.table > thead > tr > td.syllabizeLearning,
+.table > tbody > tr > td.syllabizeLearning,
+.table > tfoot > tr > td.syllabizeLearning,
+.table > thead > tr > th.syllabizeLearning,
+.table > tbody > tr > th.syllabizeLearning,
+.table > tfoot > tr > th.syllabizeLearning,
+.table > thead > tr.syllabizeLearning > td,
+.table > tbody > tr.syllabizeLearning > td,
+.table > tfoot > tr.syllabizeLearning > td,
+.table > thead > tr.syllabizeLearning > th,
+.table > tbody > tr.syllabizeLearning > th,
+.table > tfoot > tr.syllabizeLearning > th {
+  background-color: #5F0000;
+}
+.table-hover > tbody > tr > td.syllabizeLearning:hover,
+.table-hover > tbody > tr > th.syllabizeLearning:hover,
+.table-hover > tbody > tr.syllabizeLearning:hover > td,
+.table-hover > tbody > tr.syllabizeLearning:hover > th {
+  background-color: #A26E6E;
+}
+
+.table > thead > tr > td.presyllabizedWords,
+.table > tbody > tr > td.presyllabizedWords,
+.table > tfoot > tr > td.presyllabizedWords,
+.table > thead > tr > th.presyllabizedWords,
+.table > tbody > tr > th.presyllabizedWords,
+.table > tfoot > tr > th.presyllabizedWords,
+.table > thead > tr.presyllabizedWords > td,
+.table > tbody > tr.presyllabizedWords > td,
+.table > tfoot > tr.presyllabizedWords > td,
+.table > thead > tr.presyllabizedWords > th,
+.table > tbody > tr.presyllabizedWords > th,
+.table > tfoot > tr.presyllabizedWords > th {
+  background-color: #1D0A27;
+}
+.table-hover > tbody > tr > td.presyllabizedWords:hover,
+.table-hover > tbody > tr > th.presyllabizedWords:hover,
+.table-hover > tbody > tr.presyllabizedWords:hover > td,
+.table-hover > tbody > tr.presyllabizedWords:hover > th {
+  background-color: #835F96;
+}
+
+.table > thead > tr > td.trouvain,
+.table > tbody > tr > td.trouvain,
+.table > tfoot > tr > td.trouvain,
+.table > thead > tr > th.trouvain,
+.table > tbody > tr > th.trouvain,
+.table > tfoot > tr > th.trouvain,
+.table > thead > tr.trouvain > td,
+.table > tbody > tr.trouvain > td,
+.table > tfoot > tr.trouvain > td,
+.table > thead > tr.trouvain > th,
+.table > tbody > tr.trouvain > th,
+.table > tfoot > tr.trouvain > th {
+  background-color: #354B09;
+}
+.table-hover > tbody > tr > td.trouvain:hover,
+.table-hover > tbody > tr > th.trouvain:hover,
+.table-hover > tbody > tr.trouvain:hover > td,
+.table-hover > tbody > tr.trouvain:hover > th {
+  background-color: #6E8344;
+}
+

@@ -7,8 +7,8 @@ var createVCString = require ("./createVCString.js");
 var tokenize = require('./tokenizer.js');
 
 
-function determineSeparationPoints(test_string){
-  var VC_string = createVCString(test_string);
+function determineSeparationPoints(tokens){
+  var VC_string = createVCString(tokens);
   VC_string = VC_string.replace(/[^VC]/g, ''); 
   var learned_data = syllables_data[VC_string] || undefined;//add if exists
   if (learned_data){
@@ -26,9 +26,8 @@ function determineSeparationPoints(test_string){
 }
 
 
-function separateSyllables(test_string){
-  var tokens = tokenize(test_string);
-  var separation_points = determineSeparationPoints(test_string);
+function separateSyllables(tokens){
+  var separation_points = determineSeparationPoints(tokens);
     if (! separation_points){
     return [ tokens ];
   }
@@ -63,7 +62,8 @@ function printSyllableString(syllables){
   return to_print;
 }
 var main = function(){
-  var syllables = separateSyllables(test_string);
+  var tokens = tokenize(test_string);
+  var syllables = separateSyllables(tokens);
   console.log(printSyllableString(syllables));
 }
 

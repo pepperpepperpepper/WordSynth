@@ -2,6 +2,7 @@
 var presyllabized_words = require("./presyllabized_words.json");
 var test_string = process.argv[2] || 'test';  //'_s1AXrpIHkOW.';
 function checkWord(word){
+  word = word.toLowerCase();
   return presyllabized_words[word] || false;
 }
 

@@ -4,8 +4,7 @@ var tokenize = require('./tokenizer.js');
 var ARGS = process.argv.slice(2);
 var word = ARGS[0];
 
-function createVCString(string){
-  var tokens = tokenize(string);
+function createVCString(tokens){
   var consonants_vowel_pattern = "";
   tokens.forEach(function(token){
     if (token['type'] == 'PHONEME'){
@@ -21,7 +20,8 @@ function createVCString(string){
 }
 
 var main = function(){
-  console.log(createVCString(word));
+  var tokens = tokenize(word);
+  console.log(createVCString(tokens));
 }
 
 if (require.main === module) {

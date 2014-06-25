@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
 var ARGS = process.argv.slice(2);
-var presyllabizedTest = require('./main/trouvain.js');
-console.log(presyllabizedTest(ARGS[0]));
+var tokenize = require('./main/tokenizer.js');
+var test = require('./main/trouvain.js');
+console.log(test(tokenize(ARGS[0])));

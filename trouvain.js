@@ -2,9 +2,8 @@
 var tokenize = require('./tokenizer.js');
 var test_string = process.argv[2] || 'example';  //'_s1AXrpIHkOW.';
 
-function applyRules(test_string, debug){
+function applyRules(tokens, debug){
   debug = typeof debug !== 'undefined' ? debug : 0;
-  var tokens = tokenize(test_string); 
   function Token(token){
     var that = this;
     Object.keys(token).map(function(key){ that[key] = token[key] });
@@ -201,14 +200,15 @@ function createPoints(tokens){
   return points;
 }
 
-function getSyllablePoints(test_string){
-  var tokens = applyRules(test_string);
+function getSyllablePoints(tokens){
+  var tokens = applyRules(tokens);
   return createPoints(tokens);
 }
 
 
 var main = function(){
-  tokens = applyRules(test_string, 1); //with debug
+  var tokens = tokenize(test_string); 
+  tokens = applyRules(tokens, 1); //with debug
   for (i in tokens){
     if (tokens[i].syllable_break == 1 && tokens[i].symbol != " "){
       console.log(tokens[i].print()); 
