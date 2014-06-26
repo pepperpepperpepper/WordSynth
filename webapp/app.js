@@ -60,12 +60,15 @@ function processLyrics(lyrics){
   });
   lyrics = lyrics.map(function(word){
     var tokens = tokenizer(word);
+    console.log(typeof(presyllabizedWords("token")))
     return { 
 //      presyllabizedWords : idxToHyphen(presyllabizedWords(word)),
 //      trouvain : idxToHyphen(trouvain(word)),
 //      syllabizeLearning : idxToHyphen(syllabizeLearning(word)),
 //      syllabizeLearning_withaccent : idxToHyphen(syllabizeLearning_withaccent(word))
-      presyllabizedWords : idxToHyphen(tokens, presyllabizedWords(word)),
+//      presyllabizedWords : JSON.stringify(presyllabizedWords(word)),
+//      presyllabizedWords : idxToHyphen(tokens, presyllabizedWords(word)),
+      presyllabizedWords : idxToHyphen(tokens, ['2']),
       trouvain : idxToHyphen(tokens, trouvain(tokens)),
       syllabizeLearning : idxToHyphen(tokens, syllabizeLearning(tokens)),
       syllabizeLearning_withaccent : idxToHyphen(tokens, syllabizeLearning_withaccent(tokens))
@@ -82,6 +85,7 @@ app.post('/processSyllables', function (req, res)
 //  console.log(req.param("data"));
 //  console.log(req.params);
   var lyrics = req.body.lyrics;
+  console.log(JSON.stringify(presyllabizedWords(lyrics[0])));
   if (! lyrics){
     res.send(200, { newlyrics: '{}' });
   }else{
