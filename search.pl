@@ -110,8 +110,7 @@ sub main{
     my $mac_version = `node createVCString.js $word`; 
     my $results = sprintf("%s\t%s\t%s\t%s\t%s\n", 
       $word, $syll_map->{string}, join(",", @{$syll_map->{position}}) || "0", $original, $mac_version);
-    print Dumper $results;
-#    append_file('results.out_newest', $results); 
+    append_file('still_needed.out', $results); 
   }
 }
 main();
