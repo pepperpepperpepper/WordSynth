@@ -15,9 +15,8 @@
 //var separation_points = syllabizeLearning("testing");
 
 function separateSyllables(tokens, separation_points){
-    if (! separation_points){
-    return [ tokens ];
-  }
+  if (! separation_points)  return [ tokens ];
+  var separation_points = separation_points.slice(0); //copy
   var syllables = [];
   var syllable = [];
   var phoneme_count = 0; 
