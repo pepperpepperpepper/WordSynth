@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 //this is for express3
 var express = require('express');
+var execSync = require('exec-sync'); 
 var app = express();
 //{{{config
 app.enable('trust proxy'); //for nginx
@@ -22,20 +23,51 @@ app.get('/syllables', function(req, res){
   res.render('syllables.html');
 });
 
+app.get('/tokens/:word', function(req, res){
+  res.send(sendTokens(decodeURIComponent(req.param('word'))))
+})
+
+app.get('/phonemes/:word', function(req, res){
+  var word = sanitize(decodeURIComponent(req.param('word')))
+  res.send(sendPhonemes(word))
+})
+
 app.get('/', function(req, res){
   res.send('WHAAAATUPPPPP');
 });
 
 //}}}
 
-var trouvain = require("../trouvain.js");
-var syllabizeLearning = require("../syllabizeLearning.js");
-var syllabizeLearning_withaccent = require("../syllabizeLearning_withaccent.js");
-var tokenizer = require("../tokenizer.js");
-var idxToHyphen = require("../idxToHyphen.js");
+var trouvain = require("../lib/trouvain.js");
+var syllabizeLearning = require("../lib/syllabizeLearning.js");
+var syllabizeLearning_withaccent = require("../lib/syllabizeLearning_withaccent.js");
+var tokenizer = require("../lib/tokenizer.js");
+var idxToHyphen = require("../lib/idxToHyphen.js");
+
+function sanitize(s){
+  s.replace(/[^\w\s\-']/gi, '')
+  return s
+}
+
+function sendPhonemes(w){
+  return execSync('phonemes \"'+w+'\"');
+}
+
+function sendTokens(s){
+  var tokens_arr = []
+  var words = s.split(/\s/)
+  words.filter(function(w){
+    if(w)
+      return w;
+  } )
+  words = words.map(function(word){
+    return tokenizer(word)
+  })
+  return JSON.stringify(words)
+}
 
 function processLyrics(lyrics){
-  var presyllabizedWords = require("../presyllabizedWords.js");
+  var presyllabizedWords = require("../lib/presyllabizedWords.js");
   var lyrics = lyrics.split(/\s/);
   //remove empties
   lyrics.filter(function(l) { 
