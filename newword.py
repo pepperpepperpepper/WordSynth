@@ -2,6 +2,20 @@
 import re
 import urllib
 import urllib2
+class WordBuilder():
+  def __init__(self, s):
+    self.characters = s
+    self._sanitized_characters = self.santize_characters(s)
+    self._phonemes = self._fetch_phonemes(); 
+
+  @staticmethod  
+  def santize_characters(s):
+    return re.sub(r"[^a-zA-Z0-9\s\-']", '', s)
+  
+  #ok what should some of the methods be?
+  def from_string(string):
+    # fetch
+    return [ Word(), ... ] wait, what else would the Word come from if not from string? here I'll map this out
   def _fetch_phonemes(self):
     string = urllib.quote(self._sanitized_characters, '')
     url = "http://devel.chimecrisis.com/phonemes/{}".format(string)
@@ -44,21 +58,6 @@ it's easier to see what you need if you just draw it on paper, how things relate
 or like one thing can have two possible views, etc.
 ahh I see. one thing can have two views. here's the end result
 http://devel.chimecrisis.com/syllables
-
-but the only reason why I need to wrap this in OOP, this is important, should have mentioned this
-
-so I was able to get this far, but the thing is that my original idea was to use this to script the speech synthesizer
-to make it be able to read in pitches and durations and map them to the syllables.
-Obviously, since I have the syllables, and I have the pitches and durations, I'm very close,
-but the problem is that there's no OOP, and the code is very unmanageable.
-so eventually each syllable will have a pitch and a duration, and each syllable belongs to a parent Word 
-
-does that make sense? yeah so main thing to do here is to properly layout main word, tokens, syllable classes, so you could use them
-frself.words = om this pitches and durations thing.  yep
-so lets just draw out the method names or whatever in perl, it's not important what language its in because python and 
-perl are similar enough (except in python there's an init function, does perl have something like that? just "new" or anyt other with bless.)
-right same as new 
-
 
 ok so should I go back to the description of word, and make syllable, as a sub-model or something?
 so let's try to write example from user point of view 
