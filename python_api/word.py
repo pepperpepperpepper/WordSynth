@@ -11,8 +11,6 @@ import urllib2
   
 def tokenizerOSX(s):
 
-
-
 Object Word 
   - has phonetic spellings (OSXtts, xsampa) with special pronunciation characters
   - has VC spelling (OSXtts, xsampa)
@@ -28,42 +26,6 @@ Token,
 syllable
 character and so on 
 and have builder\fetcher classes, which can transform or add additional info into class, so it can be used like:
-
-my $word = Word->new("hello");
-my $tokenizer = Tokenizer::CoolOne->new();
-$tokenizer->tokenize($word);
-print Dumper $word->tokens();
-
-my $token = $word->tokens->[0];
-print Dumper $token->characters;
-
-and so on.
-
-how long do you think this would take to write in perl? not sure, depends on how many things need to be done and work together,
-it's easier to see what you need if you just draw it on paper, how things relate to each other, do you need several sets of tokens for example,
-or like one thing can have two possible views, etc.
-ahh I see. one thing can have two views. here's the end result
-http://devel.chimecrisis.com/syllables
-
-but the only reason why I need to wrap this in OOP, this is important, should have mentioned this
-
-so I was able to get this far, but the thing is that my original idea was to use this to script the speech synthesizer
-to make it be able to read in pitches and durations and map them to the syllables.
-Obviously, since I have the syllables, and I have the pitches and durations, I'm very close,
-but the problem is that there's no OOP, and the code is very unmanageable.
-so eventually each syllable will have a pitch and a duration, and each syllable belongs to a parent Word 
-
-does that make sense? yeah so main thing to do here is to properly layout main word, tokens, syllable classes, so you could use them
-frself.words = om this pitches and durations thing.  yep
-so lets just draw out the method names or whatever in perl, it's not important what language its in because python and 
-perl are similar enough (except in python there's an init function, does perl have something like that? just "new" or anyt other with bless.)
-right same as new 
-
-
-ok so should I go back to the description of word, and make syllable, as a sub-model or something?
-so let's try to write example from user point of view 
-
-
 
 #ok this is not quite the way it works...but its helping
 #first we have a string of chars
@@ -114,16 +76,10 @@ Word.addsyllables(Word.strategy.marytts) something like that? yeah that can work
 start with a mutation type strategy, and then if it's confusing, add simplifying handles into it? yes ok cool I sort of get it
 alright I'll do my best. Thanks a lot no problems
 
-
-
-
 #note will have pitch and duration and syllable....
 
 #sorry, terrible thing is that I have a tough time thinking in any way besides procedural so do you understand the basic
 #way this goes down? alright
-
-
-
 
 my $algo = Syllables::Algo::Webster->new();
 $algo->tokenize($string)
@@ -134,12 +90,7 @@ my $algo_pitch = Syllables::Algo::PitchAlgo->new();
 $algo->set_pitches($string);
 print Dumper $string->syllables; # [ Syllables::Word::Syllable { pitch => 10, duaction => 20 } ]
 
-
 foreach my $syllable ($string->syllables){
     # render sound here 
     print Dumper $syllable->pitch, $syllable->duration;
 }
-
-# something like this? (maybe String is not required, but seems like necessary if string have several words)
-
-
