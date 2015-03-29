@@ -13,7 +13,8 @@ class WordSyllablesSyllabizer(object):
       characters_curr.append(c)
       if( c.as_repr("type") == 'PHONEME'):
         phoneme_count += 1
-        if (phoneme_count == separation_points[0]):
+        print phoneme_count
+        if (separation_points and phoneme_count == int(separation_points[0])):
           syllables.append(
               WordSyllable(
                   characters=characters_curr
@@ -21,13 +22,16 @@ class WordSyllablesSyllabizer(object):
           )
           characters_curr = []
           separation_points.pop(0)
+    syllables.append(WordSyllable(characters=characters_curr))
     word.syllables_set( WordSyllables( syllables = syllables ) )
   def _get_positions(self, word):
-    vc_string = word.phonetic_spelling().vc_spelling()
+    vc_string = self._build_vc_string(word)
     learned_data = self.data.get(vc_string, None)
     if not learned_data: 
-      raise ValueError
+      raise ValueError("vc_string was not found in data")
     return learned_data[0]['positions'] 
+  def _build_vc_string(self, word):
+    return word.phonetic_spelling().vc_spelling()  
   def _load_from_jsonfile(self, filepath):
     f = open(filepath, 'r')
     data = f.read()
