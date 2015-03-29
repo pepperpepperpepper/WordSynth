@@ -11,5 +11,3 @@ class WordSyllable():
   def as_repr(self, repr_name, **kwargs):
     join_str = kwargs.get("join_str", "")
     return join_str.join( map(lambda c: c.as_repr(repr_name, **kwargs), self.characters()) )
- 
-
