@@ -13,7 +13,6 @@ class WordSyllablesSyllabizer(object):
       characters_curr.append(c)
       if( c.as_repr("type") == 'PHONEME'):
         phoneme_count += 1
-        print phoneme_count
         if (separation_points and phoneme_count == int(separation_points[0])):
           syllables.append(
               WordSyllable(

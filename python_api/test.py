@@ -15,14 +15,14 @@ phonetic = WordPhoneticSpellingCharsetOSXtts()
 phonetic.process(firstword) 
 
 
-#print firstword.phonetic_spelling().as_repr("phoneme_type") 
-#syllabizer = WordSyllablesSyllabizerLearning()
-#syllabizer.create_syllables(firstword)
-#print firstword.syllables().as_repr("symbol")
-#print firstword
-#print t.chars
-#newlist = map(lambda x: x.as_string, t.words)
-#print newlist
+print firstword.phonetic_spelling().as_repr("phoneme_type") 
+syllabizer = WordSyllablesSyllabizerLearning()
+syllabizer.create_syllables(firstword)
+print firstword.syllables().as_repr("symbol")
+print firstword
+print t.chars
+newlist = map(lambda x: x.as_string, t.words)
+print newlist
 syllabizer = WordSyllablesSyllabizerLearningwithaccent()
 syllabizer.create_syllables(firstword)
 
