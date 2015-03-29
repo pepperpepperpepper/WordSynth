@@ -1,7 +1,7 @@
 from Word.Syllables.Syllabizer import WordSyllablesSyllabizer
 from Word.PhoneticSpelling.Character import WordPhoneticSpellingCharacter
 
-class Cursor(Object):
+class Cursor(object):
   def __init__(self, character, characters):
     super(Cursor, self).__init__()
     self.character = character
@@ -12,39 +12,39 @@ class Cursor(Object):
     self.next_symbols = []
     self.prev_phonemes = []
     self.next_phonemes = []
-    def prev_symbols_set(self):
-      self.prev_symbols = reversed(characters[0:self.position])
-    def next_symbols_set(self):
-      self.next_symbols = reversed(characters[self.position:len(characters)])
-    def prev_phonemes_set(self): 
-      self.prev_phonemes = filter(lambda x: x.as_repr("type") == "PHONEME", self.prev_symbols);
-    def next_phonemes_set(self): 
-      self.next_phonemes = filter(lambda x: x.as_repr("type") == "PHONEME", self.next_symbols);
-    def prev(self):
-      if self.position > 0:
-        self.position -= 1
-      return self.characters[self.position]
-    def next(self):
-      if self.position < len(self.characters):
-        self.position += 1
-      return self.characters[self.position]
-    def reset(self):
-      self.prev_symbols_set()
-      self.next_symbols_set()
-      self.prev_phonemes_set()
-      self.next_phonemes_set()
-  
+  def prev_symbols_set(self):
+    self.prev_symbols = reversed(self.characters[0:self.position])
+  def next_symbols_set(self):
+    self.next_symbols = reversed(self.characters[self.position:len(self.characters)])
+  def prev_phonemes_set(self): 
+    self.prev_phonemes = filter(lambda x: x.as_repr("type") == "PHONEME", self.prev_symbols);
+  def next_phonemes_set(self): 
+    self.next_phonemes = filter(lambda x: x.as_repr("type") == "PHONEME", self.next_symbols);
+  def prev(self):
+    if self.position > 0:
+      self.position -= 1
+    return self.characters[self.position]
+  def next(self):
+    if self.position < len(self.characters):
+      self.position += 1
+    return self.characters[self.position]
+  def reset(self):
+    self.prev_symbols_set()
+    self.next_symbols_set()
+    self.prev_phonemes_set()
+    self.next_phonemes_set()
+import sys
 class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer): 
   def __init__(self):
     pass
   def _get_positions(self, word):
-    return self._apply_rules(word.phonetic_spelling.characters()):
+    return self._apply_rules(word.phonetic_spelling().characters())
 
   def _apply_rules(self, characters):
-    tokens = map(lambda x: Cursor(x), characters)
+    tokens = map(lambda x: Cursor(x, characters), characters)
     tokens = self._rule2(tokens)
     tokens = self._rule3(tokens)
-    return self._get_positions(tokens)
+    return self._create_separation_points(tokens)
 
   def _rule2(self, tokens): #FIXME (only works with osxtts)
     for i in range(0, len(tokens)):
@@ -53,15 +53,15 @@ class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer):
         tokens[i+1].character.as_repr("phoneme_type") == "V":
           tokens[i].position = i
           tokens[i].reset()
-          var p = 1
-          while(p < len(tokens[i].next_phonemes) and \
+          p = 1
+          while p < len(tokens[i].next_phonemes) and \
             tokens[i].next_phonemes[p].character.as_repr("TYPE") == 'C':
-              p++
-          if (p > 2 && tokens[i].next_phonemes[p]):
+              p += 1
+          if (p > 2 and tokens[i].next_phonemes[p]):
             while (tokens[i].character.as_repr("TYPE") != 'C'):
-              i++
+              i += 1
             tokens[i].syllable_break = True
-     return tokens
+    return tokens
 
   def _rule3(self, tokens):
     first_vowel = False 
@@ -100,8 +100,8 @@ class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer):
     position = 1;
     for i in range(0, len(tokens)):
       if tokens[i].syllable_break:
-        points.push(position)
+        separation_points.append(position)
       if tokens[i].character.as_repr('type') == 'PHONEME':
-        position++
+        position += 1
     return separation_points
 
