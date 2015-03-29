@@ -38,14 +38,18 @@ class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer):
   def __init__(self):
     pass
   def _get_positions(self, word):
-  def _apply_rules(self, word.phonetic_spelling.characters):
-    tokens = map(lambda x: Cursor(x), word.phonetic_spelling.characters)
-  #well this requires a syllable_break array, didn't see that above, 
+    return self._apply_rules(word.phonetic_spelling.characters()):
+
+  def _apply_rules(self, characters):
+    tokens = map(lambda x: Cursor(x), characters)
+    tokens = self._rule2(tokens)
+    tokens = self._rule3(tokens)
+    return self._get_positions(tokens)
 
   def _rule2(self, tokens): #FIXME (only works with osxtts)
     for i in range(0, len(tokens)):
       if (i + 1) < len(tokens) and \
-        tokens[i].character.as_repr("SYMBOL") == "1" and \
+        tokens[i].character.as_repr("phoneme_type") == "1" and \
         tokens[i+1].character.as_repr("phoneme_type") == "V":
           tokens[i].position = i
           tokens[i].reset()
@@ -57,117 +61,47 @@ class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer):
             while (tokens[i].character.as_repr("TYPE") != 'C'):
               i++
             tokens[i].syllable_break = True
+     return tokens
 
-#ok so I finish this by taking these boolean set breakpoints and turning them into a positions array? yep ok I can do that. good news is that this is pretty much done after that...
-#there was one more script, merriam
-
-  //RULE 3
-  //if this doesn't work, try altering RULE 4
-  var first_vowel = 0;
-  var consonant_middle = 0;
-  var second_vowel = 0;
-  var first_vowel_position = 0;
-  var consonant_middle_position = 0;
-  for (var i = 0; i < tokens.length; i++){
-    if (tokens[i].phoneme_type == 'V'){
-      if (! first_vowel){
-        first_vowel = 1;
-        first_vowel_position = i
-      }
-    
-      if (first_vowel && consonant_middle){
-
-        second_vowel = 1;
-        if (debug){
-          console.log("Using rule 3");
-          console.log("on this : ");
-          console.log(tokens[first_vowel_position].symbol)
-          console.log(first_vowel_position);
-        }
-        tokens[first_vowel_position].cursor = first_vowel_position;
-        tokens[first_vowel_position].reset();
-        if (! tokens[first_vowel_position].prev_phonemes.length){
-          tokens[consonant_middle_position].syllable_break = 1;
-        }else{
-          tokens[first_vowel_position].syllable_break = 1;
-        }
-        first_vowel = 1;
-        first_vowel_position = i;
-        consonant_middle = 0;
-
-      }
-
-//_IHgz1AEmpAXl.
-//_IHg - z1AEm - pAXl.
-    }
-    if (tokens[i].phoneme_type == 'C'){
-      if (first_vowel){
-        if (tokens[i].syllable_break){
-          first_vowel = 0;
-          consonant_middle = 0;
-        }else{
-          consonant_middle = 1;
-          if (! consonant_middle_position){
-            consonant_middle_position = i;
-          }
-        }
-      }
-    }
-  } 
-
-  //RULE 4 // Doesn't seem to be working
-//  for (var i = 0; i < tokens.length; i++){
-//    if (tokens[i].syllable_break && tokens[i].phoneme_type == 'V'){
-//      if (tokens[i+1].symbol == 'n'){
-//        tokens[i].syllable_break = 0;
-//        tokens[i+1].syllable_break = 1;
-//        if (debug){
-//          console.log("Using rule 4");
-//          console.log("on this : ");
-//          console.log(tokens[i+1].symbol)
-//        }
-//      }
-//    }
-//  }
-  return tokens;
-}
-
-
-function createPoints(tokens){
-  var points = [];
-  var position = 1;
-  for (var i = 0; i < tokens.length; i++){
-     
-    if (tokens[i].syllable_break){
-      points.push(position);
-    }
-    if (tokens[i].type == 'PHONEME' ){//|| (tokens[i]['type'] == 'PROSODIC_CONTROL' && tokens[i]['symbol'] == '1' )){
-      position++;
-    }
-  }
-  return points;
-}
-
-function getSyllablePoints(tokens){
-  var tokens = applyRules(tokens);
-  return createPoints(tokens);
-}
-
-
-var main = function(){
-  var tokens = tokenize(test_string); 
-  tokens = applyRules(tokens, 1); //with debug
-  for (i in tokens){
-    if (tokens[i].syllable_break == 1 && tokens[i].symbol != " "){
-      console.log(tokens[i].print()); 
-    }
-  }
-  createPoints(tokens);
-}
-
-if (require.main === module) {
-    main();
-}
-module.exports = getSyllablePoints;
-
+  def _rule3(self, tokens):
+    first_vowel = False 
+    consonant_middle = False 
+    second_vowel = False 
+    first_vowel_position = None 
+    consonant_middle_position = None
+    for i in range(0, len(tokens)):
+      if tokens[i].character.as_repr("phoneme_type") == 'V':   
+        if not first_vowel:
+          first_vowel = True
+          first_vowel_position = i
+        if first_vowel and consonant_middle:
+          second_vowel = True
+          tokens[first_vowel_position].position = first_vowel_position
+          tokens[first_vowel_position].reset()
+          if not len(tokens[first_vowel_position].prev_phonemes):
+            tokens[consonant_middle_position].syllable_break = True
+          else:
+            tokens[first_vowel_position].syllable_break = True
+          first_vowel = True
+          first_vowel_position = i
+          consonant_middle = False
+      if tokens[i].character.as_repr("phoneme_type") == 'C':
+        if first_vowel:
+          if tokens[i].syllable_break:
+            first_vowel = False 
+            consonant_middle = False 
+          else:
+            consonant_middle = True
+            if not consonant_middle_position:
+              consonant_middle_position = i
+    return tokens
+  def _create_separation_points(self, tokens):
+    separation_points = []
+    position = 1;
+    for i in range(0, len(tokens)):
+      if tokens[i].syllable_break:
+        points.push(position)
+      if tokens[i].character.as_repr('type') == 'PHONEME':
+        position++
+    return separation_points
 
