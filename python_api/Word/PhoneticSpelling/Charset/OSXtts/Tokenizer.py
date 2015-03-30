@@ -9,7 +9,7 @@ class WordPhoneticSpellingCharsetOSXttsTokenizer(object):
       r'(~|1|=|2|_|\+|\s)?' + #PROSODIC CONTROL\
       r'(%|@|AE|EY|AO|AX|IY|EH|IH|AY|IX|AA|UW|UH|UX|OW|AW|OY|b|C|d|D|f|g|h|J|k|l|m|n|N|p|r|s|S|t|T|v|w|y|z|Z)?') # PHONEMES
     self._consonant_vowel_map_data = "data/consonant_vowel_map_osxtts.json"
-  def tokenize(self, s)
+  def tokenize(self, s):
     consonant_vowel_map = json.loads(self._consonant_vowel_map_data) 
     phonemes = get_phonemes(s)  
     self._phonemes_string = None
