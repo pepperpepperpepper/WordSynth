@@ -42,8 +42,8 @@ class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer):
 
   def _apply_rules(self, characters):
     tokens = map(lambda x: Cursor(x, characters), characters)
-    tokens = self._rule2(tokens)
-    tokens = self._rule3(tokens)
+    self._rule2(tokens)
+    self._rule3(tokens)
     return self._create_separation_points(tokens)
 
   def _rule2(self, tokens): #FIXME (only works with osxtts)
