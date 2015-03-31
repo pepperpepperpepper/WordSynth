@@ -1,0 +1,1037 @@
+{
+    "!": {
+        "description": "downstep",
+        "symbol": "!",
+        "type": "PROSODIC_CONTROL"
+    },
+    "!\\": {
+        "description": "postalveolar click",
+        "phoneme_type": "C",
+        "symbol": "!\\",
+        "type": "PHONEME"
+    },
+    "\"": {
+        "description": "primary ",
+        "symbol": "\"",
+        "type": "PROSODIC_CONTROL"
+    },
+    "%": {
+        "description": "secondary stress",
+        "symbol": "%",
+        "type": "PROSODIC_CONTROL"
+    },
+    "&": {
+        "description": "open front rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "&",
+        "type": "PHONEME"
+    },
+    "'": {
+        "description": "palatalized",
+        "symbol": "'",
+        "type": "PROSODIC_CONTROL"
+    },
+    "*": {
+        "description": "undefined escape character, SAMPA's \"conjunctor\"",
+        "symbol": "*",
+        "type": "OTHER"
+    },
+    "-": {
+        "description": "separator",
+        "symbol": "-",
+        "type": "OTHER"
+    },
+    "-\\": {
+        "description": "linking mark",
+        "symbol": "-\\",
+        "type": "PROSODIC_CONTROL"
+    },
+    ".": {
+        "description": "syllable break",
+        "symbol": ".",
+        "type": "OTHER"
+    },
+    "/": {
+        "description": "indeterminacy in French vowels",
+        "phoneme_type": "V",
+        "symbol": "/",
+        "type": "PHONEME"
+    },
+    "1": {
+        "description": "close central unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "1",
+        "type": "PHONEME"
+    },
+    "2": {
+        "description": "close-mid front rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "2",
+        "type": "PHONEME"
+    },
+    "3": {
+        "description": "open-mid central unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "3",
+        "type": "PHONEME"
+    },
+    "3\\": {
+        "description": "open-mid central rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "3\\",
+        "type": "PHONEME"
+    },
+    "4": {
+        "description": "alveolar flap",
+        "phoneme_type": "C",
+        "symbol": "4",
+        "type": "PHONEME"
+    },
+    "5": {
+        "description": "velarized alveolar lateral approximant",
+        "phoneme_type": "C",
+        "symbol": "5",
+        "type": "PHONEME"
+    },
+    "6": {
+        "description": "near-open central vowel",
+        "phoneme_type": "V",
+        "symbol": "6",
+        "type": "PHONEME"
+    },
+    "7": {
+        "description": "close-mid back unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "7",
+        "type": "PHONEME"
+    },
+    "8": {
+        "description": "close-mid central rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "8",
+        "type": "PHONEME"
+    },
+    "9": {
+        "description": "open-mid front rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "9",
+        "type": "PHONEME"
+    },
+    ":": {
+        "description": "long",
+        "symbol": ":",
+        "type": "PROSODIC_CONTROL"
+    },
+    ":\\": {
+        "description": "half long",
+        "symbol": ":\\",
+        "type": "PROSODIC_CONTROL"
+    },
+    "<": {
+        "description": "begin nonsegmental notation (e.g., ",
+        "symbol": "<",
+        "type": "OTHER"
+    },
+    "<F>": {
+        "description": "global fall",
+        "symbol": "<F>",
+        "type": "PROSODIC_CONTROL"
+    },
+    "<R>": {
+        "description": "global rise",
+        "symbol": "<R>",
+        "type": "PROSODIC_CONTROL"
+    },
+    "<\\": {
+        "description": "voiced epiglottal fricative",
+        "phoneme_type": "C",
+        "symbol": "<\\",
+        "type": "PHONEME"
+    },
+    "=": {
+        "description": "syllabic",
+        "symbol": "=",
+        "type": "OTHER"
+    },
+    "=\\": {
+        "description": "palatal click",
+        "phoneme_type": "C",
+        "symbol": "=\\",
+        "type": "PHONEME"
+    },
+    ">": {
+        "description": "end nonsegmental notation",
+        "symbol": ">",
+        "type": "OTHER"
+    },
+    ">\\": {
+        "description": "epiglottal plosive",
+        "phoneme_type": "C",
+        "symbol": ">\\",
+        "type": "PHONEME"
+    },
+    "?": {
+        "description": "glottal stop",
+        "phoneme_type": "C",
+        "symbol": "?",
+        "type": "PHONEME"
+    },
+    "?\\": {
+        "description": "voiced pharyngeal fricative",
+        "phoneme_type": "C",
+        "symbol": "?\\",
+        "type": "PHONEME"
+    },
+    "@": {
+        "description": "schwa",
+        "phoneme_type": "V",
+        "symbol": "@",
+        "type": "PHONEME"
+    },
+    "@\\": {
+        "description": "close-mid central unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "@\\",
+        "type": "PHONEME"
+    },
+    "A": {
+        "description": "open back unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "A",
+        "type": "PHONEME"
+    },
+    "AI": {
+        "description": "open back unrounded vowel j-colored",
+        "phoneme_type": "V",
+        "symbol": "A",
+        "type": "PHONEME"
+    },
+    "B": {
+        "description": "voiced bilabial fricative",
+        "phoneme_type": "C",
+        "symbol": "B",
+        "type": "PHONEME"
+    },
+    "B\\": {
+        "description": "bilabial trill",
+        "phoneme_type": "C",
+        "symbol": "B\\",
+        "type": "PHONEME"
+    },
+    "C": {
+        "description": "voiceless palatal fricative",
+        "phoneme_type": "C",
+        "symbol": "C",
+        "type": "PHONEME"
+    },
+    "D": {
+        "description": "voiced dental fricative",
+        "phoneme_type": "C",
+        "symbol": "D",
+        "type": "PHONEME"
+    },
+    "EI": {
+        "description": "open-mid front unrounded vowel j-colored",
+        "phoneme_type": "V",
+        "symbol": "E",
+        "type": "PHONEME"
+    },
+    "E": {
+        "description": "open-mid front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "E",
+        "type": "PHONEME"
+    },
+    "F": {
+        "description": "labiodental nasal",
+        "phoneme_type": "C",
+        "symbol": "F",
+        "type": "PHONEME"
+    },
+    "G": {
+        "description": "voiced velar fricative",
+        "phoneme_type": "C",
+        "symbol": "G",
+        "type": "PHONEME"
+    },
+    "G\\": {
+        "description": "voiced uvular plosive",
+        "phoneme_type": "C",
+        "symbol": "G\\",
+        "type": "PHONEME"
+    },
+    "G\\_<": {
+        "description": "voiced uvular implosive",
+        "phoneme_type": "C",
+        "symbol": "G\\_<",
+        "type": "PHONEME"
+    },
+    "H": {
+        "description": "labial-palatal approximant",
+        "phoneme_type": "C",
+        "symbol": "H",
+        "type": "PHONEME"
+    },
+    "H\\": {
+        "description": "voiceless epiglottal fricative",
+        "phoneme_type": "C",
+        "symbol": "H\\",
+        "type": "PHONEME"
+    },
+    "I": {
+        "description": "near-close near-front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "I",
+        "type": "PHONEME"
+    },
+    "I\\": {
+        "description": "near-close central unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "I\\",
+        "type": "PHONEME"
+    },
+    "J": {
+        "description": "palatal nasal",
+        "phoneme_type": "C",
+        "symbol": "J",
+        "type": "PHONEME"
+    },
+    "J\\": {
+        "description": "voiced palatal plosive",
+        "phoneme_type": "C",
+        "symbol": "J\\",
+        "type": "PHONEME"
+    },
+    "J\\_<": {
+        "description": "voiced palatal implosive",
+        "phoneme_type": "C",
+        "symbol": "J\\_<",
+        "type": "PHONEME"
+    },
+    "K": {
+        "description": "voiceless alveolar lateral fricative",
+        "phoneme_type": "C",
+        "symbol": "K",
+        "type": "PHONEME"
+    },
+    "K\\": {
+        "description": "voiced alveolar lateral fricative",
+        "phoneme_type": "C",
+        "symbol": "K\\",
+        "type": "PHONEME"
+    },
+    "L": {
+        "description": "palatal lateral approximant",
+        "phoneme_type": "C",
+        "symbol": "L",
+        "type": "PHONEME"
+    },
+    "L\\": {
+        "description": "velar lateral approximant",
+        "phoneme_type": "C",
+        "symbol": "L\\",
+        "type": "PHONEME"
+    },
+    "M": {
+        "description": "close back unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "M",
+        "type": "PHONEME"
+    },
+    "M\\": {
+        "description": "velar approximant",
+        "phoneme_type": "C",
+        "symbol": "M\\",
+        "type": "PHONEME"
+    },
+    "N": {
+        "description": "velar nasal",
+        "phoneme_type": "C",
+        "symbol": "N",
+        "type": "PHONEME"
+    },
+    "N\\": {
+        "description": "uvular nasal",
+        "phoneme_type": "C",
+        "symbol": "N\\",
+        "type": "PHONEME"
+    },
+    "O": {
+        "description": "open-mid back rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "O",
+        "type": "PHONEME"
+    },
+    "OI": {
+        "description": "open-mid back rounded vowel j-colored",
+        "phoneme_type": "V",
+        "symbol": "O",
+        "type": "PHONEME"
+    },
+    "O\\": {
+        "description": "bilabial click",
+        "phoneme_type": "C",
+        "symbol": "O\\",
+        "type": "PHONEME"
+    },
+    "P": {
+        "description": "labiodental approximant",
+        "phoneme_type": "C",
+        "symbol": "P",
+        "type": "PHONEME"
+    },
+    "Q": {
+        "description": "open back rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "Q",
+        "type": "PHONEME"
+    },
+    "R": {
+        "description": "voiced uvular fricative",
+        "phoneme_type": "C",
+        "symbol": "R",
+        "type": "PHONEME"
+    },
+    "R\\": {
+        "description": "uvular trill",
+        "phoneme_type": "C",
+        "symbol": "R\\",
+        "type": "PHONEME"
+    },
+    "S": {
+        "description": "voiceless postalveolar fricative",
+        "phoneme_type": "C",
+        "symbol": "S",
+        "type": "PHONEME"
+    },
+    "T": {
+        "description": "voiceless dental fricative",
+        "phoneme_type": "C",
+        "symbol": "T",
+        "type": "PHONEME"
+    },
+    "@U": {
+        "description": "near-close near-back rounded vowel with schwa",
+        "phoneme_type": "V",
+        "symbol": "@U",
+        "type": "PHONEME"
+    },
+    "U": {
+        "description": "near-close near-back rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "U",
+        "type": "PHONEME"
+    },
+    "U\\": {
+        "description": "near-close central rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "U\\",
+        "type": "PHONEME"
+    },
+    "V": {
+        "description": "open-mid back unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "V",
+        "type": "PHONEME"
+    },
+    "W": {
+        "description": "voiceless labial-velar fricative",
+        "phoneme_type": "C",
+        "symbol": "W",
+        "type": "PHONEME"
+    },
+    "X": {
+        "description": "voiceless uvular fricative",
+        "phoneme_type": "C",
+        "symbol": "X",
+        "type": "PHONEME"
+    },
+    "X\\": {
+        "description": "voiceless pharyngeal fricative",
+        "phoneme_type": "C",
+        "symbol": "X\\",
+        "type": "PHONEME"
+    },
+    "Y": {
+        "description": "near-close near-front rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "Y",
+        "type": "PHONEME"
+    },
+    "Z": {
+        "description": "voiced postalveolar fricative",
+        "phoneme_type": "C",
+        "symbol": "Z",
+        "type": "PHONEME"
+    },
+    "^": {
+        "description": "upstep",
+        "symbol": "^",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_\"": {
+        "description": "centralized",
+        "symbol": "_\"",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_+": {
+        "description": "advanced",
+        "symbol": "_+",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_-": {
+        "description": "retracted",
+        "symbol": "_-",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_/": {
+        "description": "rising tone",
+        "symbol": "_/",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_0": {
+        "description": "voiceless",
+        "symbol": "_0",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_<": {
+        "description": "implosive",
+        "phoneme_type": "C",
+        "symbol": "_<",
+        "type": "PHONEME"
+    },
+    "_>": {
+        "description": "ejective",
+        "symbol": "_>",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_?\\": {
+        "description": "pharyngealized",
+        "symbol": "_?\\",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_A": {
+        "description": "advanced tongue root",
+        "symbol": "_A",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_B": {
+        "description": "extra low tone",
+        "symbol": "_B",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_B_L": {
+        "description": "low rising tone",
+        "symbol": "_B_L",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_F": {
+        "description": "falling tone",
+        "symbol": "_F",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_G": {
+        "description": "velarized",
+        "phoneme_type": "C",
+        "symbol": "_G",
+        "type": "PHONEME"
+    },
+    "_H": {
+        "description": "high tone",
+        "symbol": "_H",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_H_T": {
+        "description": "high rising tone",
+        "symbol": "_H_T",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_L": {
+        "description": "low tone",
+        "symbol": "_L",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_M": {
+        "description": "mid tone",
+        "symbol": "_M",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_N": {
+        "description": "linguolabial",
+        "symbol": "_N",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_O": {
+        "description": "more rounded",
+        "symbol": "_O",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_R": {
+        "description": "rising tone",
+        "symbol": "_R",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_R_F": {
+        "description": "rising falling tone",
+        "symbol": "_R_F",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_T": {
+        "description": "extra high tone",
+        "symbol": "_T",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_X": {
+        "description": "extra-short",
+        "symbol": "_X",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_\\": {
+        "description": "falling tone",
+        "symbol": "_\\",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_^": {
+        "description": "non-syllabic",
+        "symbol": "_^",
+        "type": "OTHER"
+    },
+    "_a": {
+        "description": "apical",
+        "symbol": "_a",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_c": {
+        "description": "less rounded",
+        "symbol": "_c",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_d": {
+        "description": "dental",
+        "phoneme_type": "C",
+        "symbol": "_d",
+        "type": "PHONEME"
+    },
+    "_e": {
+        "description": "velarized or pharyngealized; also see ",
+        "phoneme_type": "C",
+        "symbol": "_e",
+        "type": "PHONEME"
+    },
+    "_h": {
+        "description": "aspirated",
+        "symbol": "_h",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_j": {
+        "description": "palatalized",
+        "symbol": "_j",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_k": {
+        "description": "creaky voice",
+        "symbol": "_k",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_l": {
+        "description": "lateral release",
+        "symbol": "_l",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_m": {
+        "description": "laminal",
+        "symbol": "_m",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_n": {
+        "description": "nasal release",
+        "phoneme_type": "C",
+        "symbol": "_n",
+        "type": "PHONEME"
+    },
+    "_o": {
+        "description": "lowered",
+        "symbol": "_o",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_q": {
+        "description": "retracted tongue root",
+        "symbol": "_q",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_r": {
+        "description": "raised",
+        "symbol": "_r",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_t": {
+        "description": "breathy voice",
+        "symbol": "_t",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_v": {
+        "description": "voiced",
+        "symbol": "_v",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_w": {
+        "description": "labialized",
+        "symbol": "_w",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_x": {
+        "description": "mid-centralized",
+        "symbol": "_x",
+        "type": "PROSODIC_CONTROL"
+    },
+    "_}": {
+        "description": "no audible release",
+        "symbol": "_}",
+        "type": "PROSODIC_CONTROL"
+    },
+    "`": {
+        "description": "rhotacization",
+        "symbol": "`",
+        "type": "PROSODIC_CONTROL"
+    },
+    "aU": {
+        "description": "open front unrounded vowel w-colored",
+        "phoneme_type": "V",
+        "symbol": "aU",
+        "type": "PHONEME"
+    },
+    "a": {
+        "description": "open front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "a",
+        "type": "PHONEME"
+    },
+    "b": {
+        "description": "voiced bilabial plosive",
+        "phoneme_type": "C",
+        "symbol": "b",
+        "type": "PHONEME"
+    },
+    "b_<": {
+        "description": "voiced bilabial implosive",
+        "phoneme_type": "C",
+        "symbol": "b_<",
+        "type": "PHONEME"
+    },
+    "c": {
+        "description": "voiceless palatal plosive",
+        "phoneme_type": "C",
+        "symbol": "c",
+        "type": "PHONEME"
+    },
+    "d": {
+        "description": "voiced alveolar plosive",
+        "phoneme_type": "C",
+        "symbol": "d",
+        "type": "PHONEME"
+    },
+    "dZ": {
+        "description": "voiced alveolar plosive africate",
+        "phoneme_type": "C",
+        "symbol": "dZ",
+        "type": "PHONEME"
+    },
+    "d_<": {
+        "description": "voiced alveolar implosive",
+        "phoneme_type": "C",
+        "symbol": "d_<",
+        "type": "PHONEME"
+    },
+    "d`": {
+        "description": "voiced retroflex plosive",
+        "phoneme_type": "C",
+        "symbol": "d`",
+        "type": "PHONEME"
+    },
+    "e": {
+        "description": "close-mid front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "e",
+        "type": "PHONEME"
+    },
+    "f": {
+        "description": "voiceless labiodental fricative",
+        "phoneme_type": "C",
+        "symbol": "f",
+        "type": "PHONEME"
+    },
+    "g": {
+        "description": "voiced velar plosive",
+        "phoneme_type": "C",
+        "symbol": "g",
+        "type": "PHONEME"
+    },
+    "g_<": {
+        "description": "voiced velar implosive",
+        "phoneme_type": "C",
+        "symbol": "g_<",
+        "type": "PHONEME"
+    },
+    "h": {
+        "description": "voiceless glottal fricative",
+        "phoneme_type": "C",
+        "symbol": "h",
+        "type": "PHONEME"
+    },
+    "h\\": {
+        "description": "voiced glottal fricative",
+        "phoneme_type": "C",
+        "symbol": "h\\",
+        "type": "PHONEME"
+    },
+    "i": {
+        "description": "close front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "i",
+        "type": "PHONEME"
+    },
+    "j": {
+        "description": "palatal approximant",
+        "phoneme_type": "C",
+        "symbol": "j",
+        "type": "PHONEME"
+    },
+    "j\\": {
+        "description": "voiced palatal fricative",
+        "phoneme_type": "C",
+        "symbol": "j\\",
+        "type": "PHONEME"
+    },
+    "k": {
+        "description": "voiceless velar plosive",
+        "phoneme_type": "C",
+        "symbol": "k",
+        "type": "PHONEME"
+    },
+    "l": {
+        "description": "alveolar lateral approximant",
+        "phoneme_type": "C",
+        "symbol": "l",
+        "type": "PHONEME"
+    },
+    "l\\": {
+        "description": "alveolar lateral flap",
+        "phoneme_type": "C",
+        "symbol": "l\\",
+        "type": "PHONEME"
+    },
+    "l`": {
+        "description": "retroflex lateral approximant",
+        "phoneme_type": "C",
+        "symbol": "l`",
+        "type": "PHONEME"
+    },
+    "m": {
+        "description": "bilabial nasal",
+        "phoneme_type": "C",
+        "symbol": "m",
+        "type": "PHONEME"
+    },
+    "n": {
+        "description": "alveolar nasal",
+        "phoneme_type": "C",
+        "symbol": "n",
+        "type": "PHONEME"
+    },
+    "n`": {
+        "description": "retroflex nasal",
+        "phoneme_type": "C",
+        "symbol": "n`",
+        "type": "PHONEME"
+    },
+    "o": {
+        "description": "close-mid back rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "o",
+        "type": "PHONEME"
+    },
+    "p": {
+        "description": "voiceless bilabial plosive",
+        "phoneme_type": "C",
+        "symbol": "p",
+        "type": "PHONEME"
+    },
+    "p\\": {
+        "description": "voiceless bilabial fricative",
+        "phoneme_type": "C",
+        "symbol": "p\\",
+        "type": "PHONEME"
+    },
+    "q": {
+        "description": "voiceless uvular plosive",
+        "phoneme_type": "C",
+        "symbol": "q",
+        "type": "PHONEME"
+    },
+    "r": {
+        "description": "alveolar trill",
+        "phoneme_type": "C",
+        "symbol": "r",
+        "type": "PHONEME"
+    },
+    "r=": {
+        "description": "syllabic alveolar trill",
+        "phoneme_type": "C",
+        "symbol": "r",
+        "type": "PHONEME"
+    },
+    "r\\": {
+        "description": "alveolar approximant",
+        "phoneme_type": "C",
+        "symbol": "r\\",
+        "type": "PHONEME"
+    },
+    "r\\`": {
+        "description": "retroflex approximant",
+        "phoneme_type": "C",
+        "symbol": "r\\`",
+        "type": "PHONEME"
+    },
+    "r`": {
+        "description": "retroflex flap",
+        "phoneme_type": "C",
+        "symbol": "r`",
+        "type": "PHONEME"
+    },
+    "s": {
+        "description": "voiceless alveolar fricative",
+        "phoneme_type": "C",
+        "symbol": "s",
+        "type": "PHONEME"
+    },
+    "s\\": {
+        "description": "voiceless alveolo-palatal fricative",
+        "phoneme_type": "C",
+        "symbol": "s\\",
+        "type": "PHONEME"
+    },
+    "s`": {
+        "description": "voiceless retroflex fricative",
+        "phoneme_type": "C",
+        "symbol": "s`",
+        "type": "PHONEME"
+    },
+    "tS": {
+        "description": "unvoiced africate",
+        "phoneme_type": "C",
+        "symbol": "tS",
+        "type": "PHONEME"
+    },
+    "t": {
+        "description": "voiceless alveolar plosive",
+        "phoneme_type": "C",
+        "symbol": "t",
+        "type": "PHONEME"
+    },
+    "t`": {
+        "description": "voiceless retroflex plosive",
+        "phoneme_type": "C",
+        "symbol": "t`",
+        "type": "PHONEME"
+    },
+    "u": {
+        "description": "close back rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "u",
+        "type": "PHONEME"
+    },
+    "v": {
+        "description": "voiced labiodental fricative",
+        "phoneme_type": "C",
+        "symbol": "v",
+        "type": "PHONEME"
+    },
+    "v\\": {
+        "description": "labiodental approximant",
+        "phoneme_type": "C",
+        "symbol": "v\\",
+        "type": "PHONEME"
+    },
+    "w": {
+        "description": "labial-velar approximant",
+        "phoneme_type": "C",
+        "symbol": "w",
+        "type": "PHONEME"
+    },
+    "x": {
+        "description": "voiceless velar fricative",
+        "phoneme_type": "C",
+        "symbol": "x",
+        "type": "PHONEME"
+    },
+    "x\\": {
+        "description": "voiceless palatal-velar fricative",
+        "phoneme_type": "C",
+        "symbol": "x\\",
+        "type": "PHONEME"
+    },
+    "y": {
+        "description": "close front rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "y",
+        "type": "PHONEME"
+    },
+    "z": {
+        "description": "voiced alveolar fricative",
+        "phoneme_type": "C",
+        "symbol": "z",
+        "type": "PHONEME"
+    },
+    "z\\": {
+        "description": "voiced alveolo-palatal fricative",
+        "phoneme_type": "C",
+        "symbol": "z\\",
+        "type": "PHONEME"
+    },
+    "z`": {
+        "description": "voiced retroflex fricative",
+        "phoneme_type": "C",
+        "symbol": "z`",
+        "type": "PHONEME"
+    },
+    "{": {
+        "description": "near-open front unrounded vowel",
+        "phoneme_type": "V",
+        "symbol": "{",
+        "type": "PHONEME"
+    },
+    "|": {
+        "description": "minor (foot) group",
+        "symbol": "|",
+        "type": "PROSODIC_CONTROL"
+    },
+    "|\\": {
+        "description": "dental click",
+        "phoneme_type": "C",
+        "symbol": "|\\",
+        "type": "PHONEME"
+    },
+    "|\\|\\": {
+        "description": "alveolar lateral click",
+        "phoneme_type": "C",
+        "symbol": "|\\|\\",
+        "type": "PHONEME"
+    },
+    "||": {
+        "description": "major (intonation) group",
+        "symbol": "||",
+        "type": "PROSODIC_CONTROL"
+    },
+    "}": {
+        "description": "close central rounded vowel",
+        "phoneme_type": "V",
+        "symbol": "}",
+        "type": "PHONEME"
+    },
+    "~": {
+        "description": "nasalization",
+        "phoneme_type": "C",
+        "symbol": "~",
+        "type": "PHONEME"
+    }
+}

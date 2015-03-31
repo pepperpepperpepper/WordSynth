@@ -6,6 +6,7 @@ class WordSyllablesSyllabizerLearningwithaccent(WordSyllablesSyllabizer):
     super(WordSyllablesSyllabizerLearningwithaccent, self).__init__()
   def _build_vc_string(self, word):
     def get_sym(c):
+      print c.as_repr("type")
       if c.as_repr("type") == 'ACCENT': 
         return '1'
       else:

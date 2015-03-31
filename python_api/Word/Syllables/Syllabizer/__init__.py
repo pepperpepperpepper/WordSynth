@@ -25,6 +25,7 @@ class WordSyllablesSyllabizer(object):
     word.syllables_set( WordSyllables( syllables = syllables ) )
   def _get_positions(self, word):
     vc_string = self._build_vc_string(word)
+    print vc_string
     learned_data = self.data.get(vc_string, None)
     if not learned_data: 
       raise ValueError("vc_string was not found in data")

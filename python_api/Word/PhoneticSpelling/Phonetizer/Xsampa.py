@@ -5,6 +5,8 @@ import urllib
 import re
 import simplejson as json
 from xml.dom import minidom
+from Word.PhoneticSpelling import WordPhoneticSpelling
+from Word.PhoneticSpelling.Character import WordPhoneticSpellingCharacter
 
 class WordPhoneticSpellingPhonetizerXsampa(object):
   def __init__(self):
@@ -39,10 +41,13 @@ class WordPhoneticSpellingPhonetizerXsampa(object):
         if char_data.get("phoneme_type", "") == 'V' and \
           "accent" in syllable.attributes.keys() \
           and not accent_added:
-            print "YOOOOO"
-            characters.append({"type": "ACCENT", "symbol": syllable.attributes['accent'].value})
+            characters.append(
+              WordPhoneticSpellingCharacter(
+                {"type": "ACCENT", "symbol": syllable.attributes['accent'].value}
+              )
+            )
             accent_added = True
-        characters.append(char_data)
+        characters.append(WordPhoneticSpellingCharacter(char_data))
     return characters
   def process(self, word):
     word.phonetic_spelling_set(
