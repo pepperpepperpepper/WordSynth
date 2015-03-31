@@ -6,8 +6,8 @@ class WordSyllablesSyllabizerLearningwithaccent(WordSyllablesSyllabizer):
     super(WordSyllablesSyllabizerLearningwithaccent, self).__init__()
   def _build_vc_string(self, word):
     def get_sym(c):
-      if c.as_repr("symbol") == '1': 
-        return c.as_repr("symbol")
+      if c.as_repr("type") == 'ACCENT': 
+        return '1'
       else:
         return c.as_repr("phoneme_type")
     return "".join( map(lambda c: get_sym(c), word.phonetic_spelling().characters()))

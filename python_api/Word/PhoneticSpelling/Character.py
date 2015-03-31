@@ -1,5 +1,5 @@
 class WordPhoneticSpellingCharacter:
-  def __init__(self, representation):  
+  def __init__(self, representations):  
     self._repr = representations
   def __getattr__(self, attr):
     return self.as_repr(attr)
