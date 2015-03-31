@@ -1,0 +1,89 @@
+
+ok so you understand what I'm setting out to do with this, right? yep ok cool
+ok does that seem a bit better? yep TTSMaryTTS is sort of an awkward classname, right? a bit, but not much we can do about it
+I could say just MaryTTS but that would break the convention, right? yes, can try TTSMarytts maybe like that? yeah seems better? yep 
+.
+|-- data
+|   |-- consonant_vowel_map_osxtts.json
+|   |-- marytts_xsampa_char_data.json
+|   |-- merriam_webster.json
+|   |-- syllabize_learning.json
+|   `-- syllabize_learning_with_accent.json
+|-- requirements.txt
+|-- test.py
+|-- TTS
+|   |-- __init__.py
+|   |-- MaryTTS.py
+|   |-- OSXtts.py
+`-- Word
+    |-- __init__.py
+    |-- PhoneticSpelling
+    |   |-- Character.py
+    |   |-- __init__.py
+    |-- String.py
+    |-- Syllable.py
+    `-- Syllables
+        |-- __init__.py
+        `-- Syllabizer
+            |-- __init__.py
+            |-- Learning.py
+            |-- Learningwithaccent.py
+            |-- MerriamWebster.py
+            |-- Trouvain.py
+
+6 directories, 36 files
+
+
+
+so my instinct is telling me that it's good that there are different tts engines hooked up to this api,
+and different strategies for making the syllables, but it's not really good if there isn't a logical
+reason or way to use them all, you know what I mean? I was wondering how you thought I could make
+use of the different ones, considering none are perfect?
+well it has same base classes, so if one engine can for example make syllables, you can use another engine to send sylable data and get antoher info,
+it's onlt matter of keeping same structing in base objects and writing converters from\to engine. well right now there isn't a converter 
+between the two engines, maybe there could be down the line sometime
+
+but just thinking about the different algos for making syllables, how can I make use of the fact that there's more than one algo?
+something like, if one fails, try the next type of system?
+for that we can have sort of container classs, you define it like:
+$container = Word::Syllables::Syllabizer::Container->new(
+   order => [
+    Word::Syllables::Syllabizer::Learning->new(),
+    Word::Syllables::Syllabizer::Trouvain->new(),
+],
+);
+
+$container->process($word);
+
+this way you can run an algo on word, if it worked - return word. if not - try next one. ok so there might be a way of embedding
+this container into the word class itself? better not, if you want to compare performance, just create two words classes for same word and
+run each algo on own word.  olhhhh I see it's already part of word, with Word::Syllables::Syllabizer::Container 
+
+it's sort of a part of Syllabizer, right? yeah and Container is what I should call it? or I could call it something else? can be anything
+RoundRobin or something? yeah
+
+ok I can write that, so it should work in such a way that if the Syllabizer can't find syllables, it ends in Error? yes
+would you raise errors like that if you were writing perl? or just return false? raise is fine
+
+ok cool...
+well if we can fix the issue with ACCENT...
+
+there's two issues really
+first, it would be great if I could somehow store the original syllabification tha marytts uses and use that division instead of 
+Trouvain but only for marytts, that's a little bit awkward, but is that possible? yeah just another syllabizer class whicch use marytts ok
+and how can we make it so that the syllabizer checks for whether the chars are coming from marytts? or does it not need to? for example?
+I don't know, this part is actually really confusing me, how to implement this, without making a total mess...should we just go straight to the code
+and figure it out? alright
+
+
+
+
+
+
+ 
+
+
+
+
+
+

@@ -44,6 +44,19 @@
     "-\\": {
         "description": "linking mark",
         "symbol": "-\\",
+#so mary doesn't talk about PROSODIC_CONTROL at all, that's sort of a mactts concept, but to make them work the same way
+#I made this data chart...what do you think about all this? well looks good to me, not sure if restoring "1" as accent character is correct, but should
+#work in case if you want to send data from OSX to marytts somehow. well the way that I want to enable sharing between the two is indeterminacy
+#these sort of machine learning style hash lookups to guess the syllables
+#the thing is that marytts uses a pretty crude system to determine syllables, just these weird scripted rules
+#that are meant to work on all languages somehow. 
+#another issue with marytts is that their locale files (I guess that's what they are) have bugs in them
+#some words just crash it, like for instance, "abaf* really anythig that starts with "abaf" abaft
+
+
+
+
+
         "type": "PROSODIC_CONTROL"
     },
     ".": {

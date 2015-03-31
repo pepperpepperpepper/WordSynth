@@ -7,3 +7,5 @@ class WordPhoneticSpellingCharacter:
     return self._repr.get(repr_name, "")
   def representations(self):
     return self._repr.keys()
+  def tts(self): 
+    return self.as_repr("tts");
