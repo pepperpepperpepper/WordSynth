@@ -19,7 +19,6 @@ class TTSMarytts(object):
   @property
   def char_data(self):
     return self._char_data
-  
 
   def _make_marytts_params(self, s):
     return {
@@ -28,53 +27,25 @@ class TTSMarytts(object):
       'INPUT_TEXT' : s,
       'LOCALE' : 'en_US'
     }
-  def syllabize(self, word):
-    #new request to mary here, retrieving syllables to syllabize word...
-    #something like that? yes ok so does the syllabizer class Marytts have to raise an error if the phonemes 
-    #are not from mary originally? or not yet, because maybe I can make a translater at some point? yeah for now an error, later can be fixed.
-    #so how 
-  
+  def syllabize(self, s):
+    return map(lambda x: self._get_phoneme_values(x), 
+      self._get_syllable_nodes(s))
+
   def get_phonemes(self, s):
-    characters = []
-    def get_inner_phonemes(node):
-      return map(lambda x: x.attributes['p'].value, node.getElementsByTagName("ph"))
+    return sum(self.syllabize(s), [])
+
+  def _get_syllable_nodes(self, s):
     data = self.post_request(self._url, self._make_marytts_params(s))
-#so the good news is that we solved that problem, and I can fix this up and make it work better
-#what about keeping the syllables made originally by mary? well you don't need to keep them, there will be just 
-#method in this class "syllabize" which can get you syllables for any word. I don't mean keep them like
-#in persistant storage, I just meant here I am taking the phonemes out of the syllables to use with 
-#the other syllabizers. that's cool, but I sort of feel like I should also somehow use mary's own syllabizer as an option
-# guess one idea would be, to have a syllabizer called Marytts and that would just query mary again? right, it will call 
-#tts.syllabize() where is this tts.syllabize method? in this class ok but it's not in the other tts class, right? right
-
-
-
-# SyllabizeLoadringwithacent - rewrite to use syllable.has_accent (if possible)
-# OSXtts - tts.word_as_string -  return _t1EH ..., tts.word_restore_accents() - check syllable.has_accent, if yes - restore "1" as character 
-# MaryTTS - tts.word_as_string, syllable.has_accent - set flag that syllable has accent
-# MaryTTS - syllabize() function, phonetize() - call syllablze() and map { $_->phonemes } to return only phonemes.
-# something like this.
-# ok should we look at Syllabizelearningwithaccent ? alright
-
- 
     tree = minidom.parseString(data)
-    syllables = tree.getElementsByTagName('syllable')
-    for syllable in syllables:
-      accent_added = False;
-      phonemes = get_inner_phonemes(syllable)
-      for i in phonemes:
-        char_data_curr = self.char_data[i]
-        if char_data_curr.get("phoneme_type", "") == 'V' and \
-          "accent" in syllable.attributes.keys() \
-          and not accent_added:
-            characters.append(
-              WordPhoneticSpellingCharacter(
-                {"type": "ACCENT", "symbol": syllable.attributes['accent'].value}
-              )
-            )
-            accent_added = True
-        characters.append(WordPhoneticSpellingCharacter(char_data_curr))
-    return characters
+    return tree.getElementsByTagName('syllable')
+  
+  def _get_phoneme_values(self, node):
+    char_data_arr = []
+    for ph in node.getElementsByTagName("ph"):
+      c = self.char_data[ph.attributes['p'].value]
+      c.update({"tts":"Marytts"}) 
+      char_data_arr.append(WordPhoneticSpellingCharacter(c))
+    return char_data_arr
   def phonetize(self, word):
     word.phonetic_spelling_set(
       WordPhoneticSpelling(
@@ -86,7 +57,6 @@ class TTSMarytts(object):
   @staticmethod
   def post_request(url, params):
       params = urllib.urlencode(params)
-      sys.stderr.write(params)
       headers = {
           "Content-type": "application/x-www-form-urlencoded",
       }
@@ -98,12 +68,3 @@ class TTSMarytts(object):
           sys.stderr.write(str(e))
           raise
 #}}}
-if __name__ == "__main__":
-  test = "ok this is my test"
-#  test = sys.argv[1] 
-  p = WordPhoneticSpellingPhonetizerXsampa();
-  print p.get_phonemes(test)
-#tokenizer = ThisClass()
-#characters = tokenizer.tokenize(word.as_string)
-#word.characters_set(characters)
-
