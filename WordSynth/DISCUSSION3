@@ -1,0 +1,14 @@
+
+ok so problems are solved now, that's good
+
+basically I want to integrate the API with this python lib http://web.mit.edu/music21/
+to load in midi, and be able to map the midi to the syllables etc, as the next step
+
+should I make a class called MusicMapper or something like that? yeah
+ok and it takes word as an argument? yes
+
+
+so classes that use the Word class do not need to be stored within the Word directory? right ok cool
+great I can work on that. Thanks a lot for the help no problems
+I can send you a payment again soon. Talk to you soon
+
