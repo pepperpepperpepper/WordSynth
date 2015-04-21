@@ -1,4 +1,4 @@
-class WordPhoneticSpelling():
+class WordPhoneticSpelling(object):
   def __init__(self, **kwargs):
     self._characters = None 
     self.characters_set(kwargs.get('characters', []))

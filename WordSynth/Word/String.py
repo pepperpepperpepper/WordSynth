@@ -1,8 +1,7 @@
-#!/usr/bin/python2.7 
 import re
 from Word import Word
 
-class WordString():
+class WordString(object):
   def __init__(self, s):
     self._chars = s
     self._sanitized = self.santize_characters(s)

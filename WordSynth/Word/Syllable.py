@@ -1,8 +1,10 @@
-class WordSyllable():
+class WordSyllable(object):
   def __init__(self, **kwargs):
     self._characters = None 
     self.characters_set(kwargs.get('characters', []))
 
+  def __str__(self):
+    return str(vars(self)) 
   def characters(self):
     return self._characters
   def characters_set(self, characters):

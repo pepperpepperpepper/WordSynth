@@ -1,9 +1,9 @@
 DATAFILE = "data/merriam_webster.json"
-from Word.Syllables.Syllabizer import WordSyllablesSyllabizer
-class WordSyllablesSyllabizerMerriamWebster(WordSyllablesSyllabizer): 
+from Word.Syllabizer import WordSyllabizer
+class WordSyllabizerMerriamWebster(WordSyllabizer): 
   def __init__(self):
     self._datafile = DATAFILE
-    super(WordSyllablesSyllabizerMerriamWebster, self).__init__()
+    super(WordSyllabizerMerriamWebster, self).__init__()
   def _get_positions(self, word):
     positions = self.data.get(word.as_string, None)
     if not positions: 

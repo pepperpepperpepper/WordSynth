@@ -875,9 +875,9 @@
         "type": "PHONEME"
     },
     "r=": {
-        "description": "syllabic alveolar trill",
-        "phoneme_type": "C",
-        "symbol": "r",
+        "description": "syllabic alveolar trill since it's syllabic we call it a vowel (should be consonant)",
+        "phoneme_type": "V",
+        "symbol": "r=",
         "type": "PHONEME"
     },
     "r\\": {

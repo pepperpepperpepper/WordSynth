@@ -1,7 +1,6 @@
 class Word(object):
   def __init__(self, s):
     self.as_string = s
-#    self._phonetic_tokens = None
     self._phonetic_spelling = None
     self._syllables = None
   def __str__(self):
@@ -14,7 +13,7 @@ class Word(object):
     self._phonetic_spelling = characters
   def phonetic_spelling(self):
     return self._phonetic_spelling
-  def syllables_set(self, characters):
-    self._syllables = characters
+  def syllables_set(self, syllables):
+    self._syllables = syllables
   def syllables(self):
     return self._syllables

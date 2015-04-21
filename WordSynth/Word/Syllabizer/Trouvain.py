@@ -1,4 +1,4 @@
-from Word.Syllables.Syllabizer import WordSyllablesSyllabizer
+from Word.Syllabizer import WordSyllabizer
 from Word.PhoneticSpelling.Character import WordPhoneticSpellingCharacter
 
 class Cursor(object):
@@ -34,7 +34,7 @@ class Cursor(object):
     self.prev_phonemes_set()
     self.next_phonemes_set()
 import sys
-class WordSyllablesSyllabizerTrouvain(WordSyllablesSyllabizer): 
+class WordSyllabizerTrouvain(WordSyllabizer): 
   def __init__(self):
     pass
   def _get_positions(self, word):

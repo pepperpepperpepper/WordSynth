@@ -20,11 +20,10 @@ class TTSOSXtts(object):
     characters = []
     matches = re.findall(self._regexp, phonemes_string)
     for match in matches:
-      if match[0]: characters.append({ "type": "PUNCTUATION_DATA", "symbol": match[0] }) 
+      if match[0]: characters.append({ "type": "PUNCTUATION_DATA", "symbol": match[0] })  
       if match[1]: characters.append({ "type": "PROSODIC_CONTROL", "symbol": match[1] } )
       if match[2]: characters.append({ "type": "PHONEME", "symbol": match[2], 
         "phoneme_type": self.consonant_vowel_map[match[2]]  } )
-    #ask anton
     for c in characters: c.update({"tts":"Marytts"}) 
     characters = map(lambda x: WordPhoneticSpellingCharacter(x), characters)
     word.phonetic_spelling_set(WordPhoneticSpelling(characters=characters))

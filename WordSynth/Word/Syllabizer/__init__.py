@@ -1,7 +1,6 @@
 import simplejson as json
-from Word.Syllables import WordSyllables 
 from Word.Syllable import WordSyllable 
-class WordSyllablesSyllabizer(object):
+class WordSyllabizer(object):
   def __init__(self):
     self.data = self._load_from_jsonfile(self._datafile)
   def create_syllables(self, word):
@@ -22,7 +21,7 @@ class WordSyllablesSyllabizer(object):
           characters_curr = []
           separation_points.pop(0)
     syllables.append(WordSyllable(characters=characters_curr))
-    word.syllables_set( WordSyllables( syllables = syllables ) )
+    word.syllables_set( syllables )
   def _get_positions(self, word):
     vc_string = self._build_vc_string(word)
     print vc_string
