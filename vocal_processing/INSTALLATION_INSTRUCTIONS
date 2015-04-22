@@ -1,0 +1,11 @@
+
+
+in the shell:
+$> brew install nodejs;
+$> ./build.sh 
+
+
+to test prepareInputs.js...
+./prepareInputs.js 
+--or--
+./prepareInputs.js [midifile_name.mid] 
