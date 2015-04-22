@@ -1,6 +1,6 @@
 class WordPhoneticSpellingCharacter(object):
   def __init__(self, representations):  
-    self._repr = representations
+    self._repr = representations #tts', 'phoneme_type', 'symbol', 'type', 'description'
     self.pitch = None;
     self.duration = None;
   def as_repr(self, repr_name):
