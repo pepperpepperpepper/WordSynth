@@ -2,3 +2,5 @@ marytts 5.1.2
 
 music21
 pygame
+lilypond
+abjad

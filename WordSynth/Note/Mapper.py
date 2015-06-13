@@ -4,11 +4,13 @@ import inspect
 from Word.Syllable import WordSyllable
 from Word import Word
 import sys
+from Note import Note
 
-class WordSyllableNoteMapper(object):
+
+class NoteMapper(object):
   def __init__(self):
     self.CONSONANT_DURATION = 20;
-  def _get_pitch_and_duration(self,note): #FIXME add music21 code
+  def _get_pitch_and_duration(self,note): 
     #Num is a fraction of a beat
     #(num / (tempo * 1/60)) * 1000
     #music21 note.duration * tempo (from music21.tempo tempoinstance.number * durationinstance.quarterLength
