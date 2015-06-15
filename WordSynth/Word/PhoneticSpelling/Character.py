@@ -3,6 +3,25 @@ class WordPhoneticSpellingCharacter(object):
     self._repr = representations #tts', 'phoneme_type', 'symbol', 'type', 'description'
     self.pitch = None;
     self.duration = None;
+  def __str__(self):
+    return (
+      "<Character obj:\n"+
+      "\tpitch: {}\n"+ 
+      "\tduration: {}\n"+ 
+      "\tphoneme_type: {}\n"+
+      "\tsymbol: {}\n"+ 
+      "\ttype: {}\n"+
+      "\tdescription: {}\n>"
+    ).format(
+      self.pitch, 
+      self.duration,
+      self.as_repr("phoneme_type"), 
+      self.as_repr("symbol"),
+      self.as_repr("type"), 
+      self.as_repr("description")
+    )
+  def __repr__(self):
+    return str(self)
   def as_repr(self, repr_name):
     return self._repr.get(repr_name, "")
   def is_vowel(self):
