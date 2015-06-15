@@ -8,17 +8,20 @@ class WordPhoneticSpellingCharacter(object):
       "<Character obj:\n"+
       "\tpitch: {}\n"+ 
       "\tduration: {}\n"+ 
+      "\t--representations--\n"+
       "\tphoneme_type: {}\n"+
       "\tsymbol: {}\n"+ 
       "\ttype: {}\n"+
-      "\tdescription: {}\n>"
+      "\tdescription: {}\n"+
+      "\ttts: {}\n>"
     ).format(
       self.pitch, 
       self.duration,
       self.as_repr("phoneme_type"), 
       self.as_repr("symbol"),
       self.as_repr("type"), 
-      self.as_repr("description")
+      self.as_repr("description"),
+      self.as_repr("tts")
     )
   def __repr__(self):
     return str(self)
